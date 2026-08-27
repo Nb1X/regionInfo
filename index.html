@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Among Us Region Creator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            max-width: 500px;
+            width: 100%;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            text-align: center;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+        
+        input:focus {
+            outline: none;
+            border-color: #764ba2;
+        }
+        
+        button {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(118, 75, 162, 0.4);
+        }
+        
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 5px;
+            max-height: 200px;
+            overflow-y: auto;
+            display: none;
+        }
+        
+        #output.success {
+            background: #d4edda;
+            border: 1px solid #c3e6cb;
+            color: #155724;
+        }
+        
+        #output.error {
+            background: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+        }
+        
+        .status {
+            margin-top: 15px;
+            text-align: center;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .icon {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        
+        .icon img {
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="icon">
+            <img src="https://cdn-icons-png.flaticon.com/512/7808/7808020.png" alt="Among Us Icon">
+        </div>
+        <h1>Among Us Region Creator</h1>
+        
+        <div class="form-group">
+            <label for="regionName">Region Name:</label>
+            <input type="text" id="regionName" value="EU" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="ipAddress">IP / Domain:</label>
+            <input type="text" id="ipAddress" value="127.0.0.1" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="port">Port:</label>
+            <input type="number" id="port" value="22023" min="1" max="32767" required>
+        </div>
+        
+        <div class="form-group">
+            <label for="fileName">File Name:</label>
+            <input type="text" id="fileName" value="regionInfo.dat" required>
+        </div>
+        
+        <button onclick="createFile()">Create File</button>
+        
+        <div id="output"></div>
+        <div class="status" id="status">Ready</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
